@@ -24,7 +24,7 @@ class _NoteDescriptionState extends State<NoteDescription> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 133, 175, 253),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,

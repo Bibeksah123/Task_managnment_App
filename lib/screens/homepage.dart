@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:task_managnment_app/models/user_model.dart';
 import 'package:task_managnment_app/screens/Taskdescription.dart';
+import 'package:task_managnment_app/screens/signin.dart';
 import 'package:task_managnment_app/screens/updateTask.dart';
 import '../libraries.dart';
 
@@ -50,26 +51,18 @@ class _HomePageState extends State<HomePage> {
           );
         },
         child: const Icon(Icons.add),
+        backgroundColor: Colors.lightBlueAccent,
       ),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 172, 207, 247),
+        backgroundColor: Color.fromARGB(0, 0, 0, 0),
         elevation: 0.0,
-        leading: Icon(
-          Icons.menu,
-          color: Color.fromARGB(255, 155, 201, 238),
-        ),
         actions: [
           IconButton(
-            icon: const Icon(
-              Icons.notifications,
-              color: Color.fromARGB(255, 177, 213, 243),
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-              onPressed: () {},
+              onPressed: () {
+                logout(context);
+              },
               icon: const Icon(Icons.logout,
-                  color: Color.fromARGB(255, 159, 33, 243)))
+                  color: Color.fromARGB(255, 66, 93, 247)))
         ],
       ),
       body: StreamBuilder(
@@ -104,8 +97,11 @@ class _HomePageState extends State<HomePage> {
                     })));
                   },
                   child: Card(
-                    elevation: 5.0,
-                    color: Colors.white,
+                    elevation: 8.0,
+                    color: Color.fromARGB(255, 152, 234, 248),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -116,12 +112,14 @@ class _HomePageState extends State<HomePage> {
                           title: Text(
                             document['title'],
                             style: const TextStyle(
-                                color: Colors.black, fontSize: 30.0),
+                                color: Color.fromARGB(255, 146, 138, 250),
+                                fontSize: 30.0),
                           ),
                           subtitle: Text(
                             document['description'],
                             style: TextStyle(
-                                fontSize: 20.0, color: Colors.grey[700]),
+                                fontSize: 20.0,
+                                color: Color.fromARGB(255, 12, 12, 12)),
                           ),
                           isThreeLine: true,
                         ),
@@ -152,7 +150,10 @@ class _HomePageState extends State<HomePage> {
                                     },
                                     child: Icon(
                                       Icons.edit,
-                                      color: Colors.white,
+                                      color: Color.fromARGB(255, 114, 206, 248),
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
                                     ),
                                     color: Color.fromARGB(255, 134, 241, 209),
                                   ),
@@ -170,6 +171,9 @@ class _HomePageState extends State<HomePage> {
                                       Icons.delete,
                                       color: Colors.white,
                                     ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
                                     color: Color.fromARGB(255, 240, 127, 119),
                                   ),
                                 ],
@@ -186,4 +190,12 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+Future<void> logout(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+  Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => SigninScreen()),
+      (route) => false);
 }

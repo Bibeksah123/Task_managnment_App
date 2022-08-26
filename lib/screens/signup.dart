@@ -39,8 +39,11 @@ class _SignupScreenState extends State<SignupScreen> {
           prefixIconColor: Colors.red,
           contentPadding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
           labelText: "First Name",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.vertical(
+            top: Radius.circular(10),
+            bottom: Radius.circular(30),
+          ))),
       autofocus: false,
       controller: firstNameEditingController,
       keyboardType: TextInputType.name,
@@ -70,8 +73,11 @@ class _SignupScreenState extends State<SignupScreen> {
           contentPadding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
           // hintText: "Enter your email address",
           labelText: "Second Name",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.vertical(
+            top: Radius.circular(10),
+            bottom: Radius.circular(30),
+          ))),
       autofocus: false,
       controller: secondNameEditingController,
       keyboardType: TextInputType.name,
@@ -94,8 +100,11 @@ class _SignupScreenState extends State<SignupScreen> {
           contentPadding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
           // hintText: "Enter your email address",
           labelText: "Email",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.vertical(
+            top: Radius.circular(10),
+            bottom: Radius.circular(30),
+          ))),
       autofocus: false,
       controller: emailEditingController,
       keyboardType: TextInputType.emailAddress,
@@ -121,8 +130,11 @@ class _SignupScreenState extends State<SignupScreen> {
           contentPadding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
           // hintText: "Enter your email address",
           labelText: "Password",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.vertical(
+            top: Radius.circular(10),
+            bottom: Radius.circular(30),
+          ))),
       autofocus: false,
       obscureText: true,
       controller: passwordEditingController,
@@ -148,8 +160,11 @@ class _SignupScreenState extends State<SignupScreen> {
           contentPadding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
           // hintText: "Enter your email address",
           labelText: "Confirm Password",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.vertical(
+            top: Radius.circular(10),
+            bottom: Radius.circular(30),
+          ))),
       autofocus: false,
       controller: confirmPasswordEditingController,
       obscureText: true,
@@ -169,8 +184,11 @@ class _SignupScreenState extends State<SignupScreen> {
 
     final signupButton = Material(
       elevation: 5,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Color.fromARGB(255, 247, 123, 114),
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(10),
+        bottom: Radius.circular(30),
+      ),
+      color: Color.fromARGB(255, 128, 215, 250),
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
         minWidth: MediaQuery.of(context).size.width,
@@ -185,79 +203,86 @@ class _SignupScreenState extends State<SignupScreen> {
     );
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 177, 231, 245),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.blue,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/addtask.jpg"),
+            fit: BoxFit.cover,
           ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
         ),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            color: Color.fromARGB(255, 161, 234, 247),
-            child: Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        child: Image.asset(
-                          "assets/images/header.jpg",
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      const SizedBox(height: 20.0),
-                      firstNameField,
-                      const SizedBox(height: 20.0),
-                      secondNameField,
-                      const SizedBox(height: 20.0),
-                      emailField,
-                      const SizedBox(height: 20.0),
-                      passwordField,
-                      const SizedBox(height: 20.0),
-                      confirmPasswordField,
-                      const SizedBox(height: 20.0),
-                      signupButton,
-                      const SizedBox(height: 20.0),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text("Already have an account?"),
-                          const SizedBox(width: 5.0),
-                          GestureDetector(
-                            child: const Text(
-                              "Sign In",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18.0,
-                                  decoration: TextDecoration.underline,
-                                  color: Color.fromARGB(255, 155, 148, 245)),
+        // appBar: AppBar(
+        //   elevation: 0,
+        //   backgroundColor: Colors.transparent,
+        //   leading: IconButton(
+        //     icon: const Icon(
+        //       Icons.arrow_back,
+        //       color: Colors.blue,
+        //     ),
+        //     onPressed: () {
+        //       Navigator.of(context).pop();
+        //     },
+        //   ),
+        // ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              // color: Color.fromARGB(255, 161, 234, 247),
+              child: Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            // child: Image.asset(
+                            //   "assets/images/header.jpg",
+                            //   height: MediaQuery.of(context).size.height * 0.2,
+                            //   fit: BoxFit.contain,
+                            // ),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SigninScreen()));
-                            },
-                          )
-                        ],
-                      )
-                    ],
-                  )),
+                        const SizedBox(height: 10.0),
+                        firstNameField,
+                        const SizedBox(height: 10.0),
+                        secondNameField,
+                        const SizedBox(height: 10.0),
+                        emailField,
+                        const SizedBox(height: 10.0),
+                        passwordField,
+                        const SizedBox(height: 10.0),
+                        confirmPasswordField,
+                        const SizedBox(height: 10.0),
+                        signupButton,
+                        const SizedBox(height: 10.0),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Already have an account?"),
+                            const SizedBox(width: 5.0),
+                            GestureDetector(
+                              child: const Text(
+                                "Sign In",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                    decoration: TextDecoration.none,
+                                    color: Color.fromARGB(255, 54, 141, 255)),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SigninScreen()));
+                              },
+                            )
+                          ],
+                        )
+                      ],
+                    )),
+              ),
             ),
           ),
         ),

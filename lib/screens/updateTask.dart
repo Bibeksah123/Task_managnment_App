@@ -95,7 +95,7 @@ class _UpdatetasksState extends State<Updatetasks> {
         title: Text(
           'Update Task',
           style: TextStyle(
-              color: Color.fromARGB(255, 129, 189, 238), fontSize: 30.0),
+              color: Color.fromARGB(255, 129, 108, 250), fontSize: 30.0),
         ),
         leading: GestureDetector(
             onTap: () {
@@ -116,7 +116,10 @@ class _UpdatetasksState extends State<Updatetasks> {
                 controller: _titleController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(10),
+                        bottom: Radius.circular(30),
+                      ),
                     ),
                     labelText: 'Title',
                     hintText: 'Enter title of your Task........'),
@@ -127,38 +130,48 @@ class _UpdatetasksState extends State<Updatetasks> {
                 controller: _descriptionController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(10),
+                        bottom: Radius.circular(30),
+                      ),
                     ),
                     labelText: 'Enter Task Description',
                     hintText: 'Enter description a Task........'),
               ),
               SizedBox(height: 20.0),
-              TextField(
-                controller: _dateController,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    labelText: 'Enter Modify Date',
-                    hintText: 'Enter modify date of your task........'),
-                onTap: () {
-                  _selectDate(context);
-                },
-              ),
+              // TextField(
+              //   controller: _dateController,
+              //   decoration: InputDecoration(
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.vertical(
+              //           top: Radius.circular(10),
+              //           bottom: Radius.circular(30),
+              //         ),
+              //       ),
+              //       labelText: 'Enter Modify Date',
+              //       hintText: 'Enter modify date of your task........'),
+              //   onTap: () {
+              //     _selectDate(context);
+              //   },
+              // ),
               SizedBox(height: 20.0),
               TextField(
                 controller: _timeController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(10),
+                        bottom: Radius.circular(30),
+                      ),
                     ),
-                    labelText: 'Enter Modify Time',
+                    labelText: 'Enter Update Time',
                     hintText: 'Enter modify time of your task........'),
                 onTap: () {
                   _selectTime(context);
                 },
               ),
               SizedBox(height: 20.0),
+
               RaisedButton(
                 onPressed: () {
                   print(widget.noteId);

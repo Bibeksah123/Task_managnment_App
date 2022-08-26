@@ -76,12 +76,13 @@ class _AddTaskState extends State<AddTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 183, 220, 245),
+      backgroundColor: Color.fromARGB(255, 121, 197, 248),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 170, 191, 248),
         elevation: 0.0,
         title: Text('Add Task',
-            style: TextStyle(color: Colors.black, fontSize: 25.0)),
+            style:
+                TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 25.0)),
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
@@ -105,7 +106,10 @@ class _AddTaskState extends State<AddTask> {
                 controller: _titleController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(10),
+                        bottom: Radius.circular(30),
+                      ),
                     ),
                     labelText: 'Enter Title',
                     hintText: 'Enter title of your Task........'),
@@ -116,7 +120,10 @@ class _AddTaskState extends State<AddTask> {
                 controller: _descriptionController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(10),
+                        bottom: Radius.circular(30),
+                      ),
                     ),
                     labelText: 'Enter Description',
                     hintText: 'Enter description of your Task........'),
@@ -126,7 +133,10 @@ class _AddTaskState extends State<AddTask> {
                 controller: _dateController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(10),
+                        bottom: Radius.circular(30),
+                      ),
                     ),
                     labelText: 'Enter Date',
                     hintText: 'Enter date of your Task........'),
